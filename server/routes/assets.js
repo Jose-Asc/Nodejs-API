@@ -17,10 +17,23 @@ router.get('/:id', getAsset, (req, res) =>{
 })
 //creating one
 router.post('/', async (req, res) =>{
-    const asset = new Asset({
-        name: req.body.name,
-        subscribeToChannel: req.body.subscribeToChannel
+    const { title, description, rating, actors, releaseDate } = req.body
+    const asset = new Asset ({
+        title: title,
+        description: description,
+        rating: rating,
+        actors: actors,
+        releaseDate: releaseDate
     })
+
+    // const asset = new Asset({
+    //     title: req.body.title,
+    //     description: req.body.description,
+    //     actors: req.body.actors,
+    //     releaseDate: req.body.releaseDate,
+    //     title: req.body.title,
+    //     rating: req.body.rating
+    // })
     try {
         const newAsset = await asset.save()
         res.status(201).json(newAsset)

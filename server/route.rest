@@ -1,0 +1,16 @@
+GET http://localhost:8080/api/assets
+###
+GET http://localhost:8080/api/assets/667bb5b01e7d6237663fa4da
+###
+POST http://localhost:8080/api/assets
+Content-Type:application/json
+
+{
+    "title":"Peloiucla2",
+    "description":"Web Dev Simplified",
+    "releaseDate": "06/10/2024"
+}
+
+###
+
+DELETE  http://localhost:8080/api/assets/6684564d50d62b47a705e988

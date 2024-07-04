@@ -12,6 +12,6 @@ db.once('open', () => console.log('Connected to Database'))
 app.use(express.json())
 
 const assetsRouter = require('./routes/assets')
-app.use('/assets', assetsRouter)
+app.use('/api/assets', assetsRouter)
 
-app.listen (3000, () => console.log('Server Started'))
+app.listen (8080, () => console.log('Server Started'))

@@ -1,22 +1,24 @@
-import React, { useEffect, useState} from 'react'
+import React from 'react'
+import { useEffect, useState} from 'react'
 
 function App() {
-  let Datass
-  let Datass2
+  
   const [ backendData, setBackendData ] = useState()
 
   useEffect( () => {
-    fetch("/api/assets")
-    .then( res => { setBackendData(res) })
-    // .then( data => { Datass = data })  
+    fetch("/api/assets/")
+    .then(res => res.json())
+    .then(data => setBackendData(data))  
+    .catch(error => console.log(error))
   } , [])
-
-  // console.log(":")
-  console.log(backendData)
 
   return (
     <div>
-      {/* { {backendData} } */}
+      <ul>
+        {backendData?.map((list, index)=> (
+          <li key={index}>{list.title} | {list.description} | {list.rating}</li>
+        ))}
+      </ul>
     </div>
   )
 }
